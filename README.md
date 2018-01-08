@@ -51,7 +51,7 @@ Resist the urge to jump immediately into coding.  For this sprint we want to car
 * *First Check-in* - 9AM Thursday, January 4 with squad leader - Project board, which API you plan to use, proof of concept.
 * *Second Check-in* - 9AM on Friday, January 5 - Git repo, routes structure, database, initial Heroku deployment(we will provide the steps).
 * *Stand Ups* - Every day with your squad leader
-* *Presentations* - 10AM on Wednesday, January 11 
+* *Presentations* - 10AM on Wednesday, January 11
 
 ## Deliverables
 

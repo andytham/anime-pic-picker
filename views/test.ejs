@@ -5,11 +5,11 @@
     <title></title>
   </head>
   <body>
+    Found <%= data.length %>
     <% for (let value of data) { %>
-      <% if (value.rating == 's')  { %>
-        <img width="200px" src="<%= `${webSite}${value.preview_file_url}`%>">
 
-      <% } %>
+        <img  src="<%= `${webSite}${value.directory}/${value.image}`%>">
+
    <% } %>
   </body>
 </html>

@@ -10,6 +10,9 @@
 - user favorites (images and tags)
 - image API
 - database (users, images, favorites)
+- Users can search tags for images, then add the images or tags into their saved/favorite
+- Users can bring up their favorites and see what they liked
+
 
 # POST MVP
 - multiple image APIs

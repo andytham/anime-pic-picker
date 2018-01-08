@@ -1,8 +1,8 @@
 # Wireframe
-![pic](http://res.cloudinary.com/andytham/image/upload/v1515439399/project2/tp.jpg)
-# Time Priority Matrix
 ![pic](http://res.cloudinary.com/andytham/image/upload/v1515439400/project2/wireframe.jpg)
+# Time Priority Matrix
 
+![pic](http://res.cloudinary.com/andytham/image/upload/v1515439399/project2/tp.jpg)
 # MVP
 
 

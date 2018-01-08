@@ -5,8 +5,16 @@
 ![pic](http://res.cloudinary.com/andytham/image/upload/v1515439399/project2/tp.jpg)
 # MVP
 
+- CRUD
+- auth
+- user favorites (images and tags)
+- image API
+- database (users, images, favorites)
 
 # POST MVP
+- multiple image APIs
+- OAuth
+- Allow users to download
 
 # Components
 | Component | Priority | Estimated Time | Time Invested | Actual Time |

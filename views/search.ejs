@@ -23,7 +23,7 @@
             <input type="submit" value="save" />
           </form>
         </div>
-        <% tags = data.tags.split(" ") %>
+        <% tags = value.tags.split(" ") %>
         <% for (let i = 0; i < tags.length; i++) { %>
           <% if(tagsCombined.indexOf(tags[i]) == -1){ %>
           <%  tagsCombined.push(tags[i]) %>
@@ -31,8 +31,8 @@
       <%  } %>
     <% } %>
   </div>
-  <div>
-    <% tagsCombined %>
+  <div class="tags">
+    <%= tagsCombined %>
   </div>
   <a href="/search/saved"<p>saved</p></a>
   </body>

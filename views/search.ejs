@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    Found <%= data.length %> results for <%= searchTerm %>
+    <div class="images-container">
+    <% for (let value of data) { %>
+        <% let image = `${webSite}${value.directory}/${value.image}`; %>
+        <div class="image-container">
+
+          <a href="<%=`${image}` %>" name="selected">
+          <img width="300px" src="<%= image%>">
+          </a>
+          <form action="<%= `/search/saved?_method=POST` %>" method="POST">
+            <input type="submit" value="save" />
+          </form>
+        </div>
+
+    <% } %>
+  </div>
+  <p>aerinjhnehnre</p>
+  </body>
+</html>

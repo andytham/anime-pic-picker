@@ -16,10 +16,10 @@ Image.findById = (id) => {
 Image.create = image => {
   return db.one(`
     INSERT INTO images
-    (subject, content)
-    VALUES ($1, $2)
+    (image)
+    VALUES ($1)
     RETURNING *
-    `, [image.subject, image.content])
+    `, [image.image])
 }
 
 Image.update = (image, id) => {

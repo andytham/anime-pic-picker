@@ -6,19 +6,18 @@ imageController.index = (req, res) => {
 }
 //
 imageController.search = (req, res) => {
-
-  console.log('inside search method')
   axios({
     method: 'get',
-    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=10&json=1&tags=boa_hancock
-` //`http://api.openweathermap.org/data/2.5/weather?q=${req.body.title}&apikey=${process.env.apikey}`//${process.env.API_KEY}&t=${req.body.title}
+    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=5&json=1&tags=${req.body.search}
+`
   })
   .then( data => {
     // console.log('got this back', data.data)
-    res.render('test.ejs', {
+    res.render('search.ejs', {
       data: data.data,
+      searchTerm: req.params.search,
+      test: "test",
       webSite: "http://safebooru.org/images/",
-
     })
   })
   .catch( err => {
@@ -26,5 +25,18 @@ imageController.search = (req, res) => {
   })
   console.log('we done searchin');
 }
+
+imageController.create = (req,res) => {
+  Image.create({
+    image: req.body.image
+  })
+  .then(()=> {
+    res.redirect('/')
+  }).catch(err=> {
+    res.status(400).json(err);
+  })
+}
+
+
 
 module.exports = imageController;

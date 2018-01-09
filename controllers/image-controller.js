@@ -32,7 +32,9 @@ imageController.search = (req, res) => {
 
 imageController.create = (req,res) => {
   Image.create({
-    image: req.body.image
+    image: req.body.image,
+    id: req.body.id,
+    tags: req.body.tags
   })
   .then(image => {
     return;

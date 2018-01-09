@@ -14,22 +14,33 @@ Image.findById = (id) => {
   );
 }
 
-Image.create = image => {
-  return db.one(`
-    INSERT INTO images
-    (image)
-    VALUES ($1)
-    RETURNING *
-    `, [image.image])
+Image.create = (image, id) => {
+  let splitTags = image.tags.split(" ");
+    db.one(`
+     INSERT INTO images
+     (image)
+     VALUES ($1)
+     RETURNING *
+     `, [image.image]);
+     for (let tag of splitTags) {
+       let idFix = Number(image.id) + 1;
+       db.one(`
+       INSERT INTO safeboorutags
+       (tag, image_id)
+       VALUES ($1, $2)
+       RETURNING *`,[tag,idFix]);
+      }
+      return db.query(`
+      SELECT * FROM images`)
 }
 
 Image.update = (image, id) => {
   return db.none(`
-    UPDATE Images SET
+    UPDATE images SET
     subject = $1,
     content = $2
     WHERE id = $3
-    `, [image.subject, image.content, id]
+    `, [image.image, image.content, id]
   );
 }
 

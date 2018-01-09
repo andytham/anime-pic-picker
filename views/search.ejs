@@ -10,15 +10,19 @@
     <div class="images-container">
       <% let tags = [] %>
       <% let tagsCombined = [] %>
-    <% for (let value of data) { %>
-        <% let image = `${webSite}${value.directory}/${value.image}`; %>
+    <% for (let [index,value] of data.entries()) { %>
+      <% let image = {image:`${webSite}${value.directory}/${value.image}`,id: `${index}`, tags: `${value.tags}`}%>
+        <% let poop = `${webSite}${value.directory}/${value.image}`; %>
+
         <div class="image-container">
 
-          <a href="<%=`${image}` %>" name="selected">
-          <img width="300px" src="<%= image%>">
+          <a href="<%=`${image.image}` %>" name="selected">
+          <img width="300px" src="<%= image.image%>">
           </a>
           <form action="/search/saved" method="POST">
-            <input class="save" type="text" name="image" value="<%= image %>" />
+          <input class="save" type="text" name="tags" value="<%= image.tags %>" />
+            <input class="save" type="text" name="image" value="<%= image.image %>" />
+            <input class="save" type="text" name="id" value="<%= image.id %>" />
             <input type="submit" value="save" />
           </form>
         </div>

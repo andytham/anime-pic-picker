@@ -24,8 +24,8 @@ app.listen(PORT, () => {
 });
 
 app.use('/', require('./routes/image-route.js'));
-
+app.use('/tags',require('./routes/safeboorutag-route.js'))
 
 app.get('*', (req,res) =>{
-  res.send('404 error');
+  res.render('404.ejs');
 })

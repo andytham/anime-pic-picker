@@ -55,6 +55,20 @@ imageController.showSaved = (req,res) => {
     res.status(400).json(err);
   });
 }
+imageController.show = (req,res) => {
+  Image.findById(req.params.id)
+    .then(image => {
+      res.render('show.ejs',{
+        image:image
+      })
+    })
+    .catch(err => {
+      res.status(400).json(err)
+    })
+}
+imageController.edit = (req,res) => {
+
+}
 imageController.destroy = (req,res) => {
   Image.destroy(req.params.id)
   .then(() => {

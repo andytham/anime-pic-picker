@@ -17,13 +17,16 @@ Image.findById = (id) => {
 Image.create = (image, id) => {
   let splitTags = image.tags.split(" ");
     db.one(`
-     INSERT INTO images
-     (image)
-     VALUES ($1)
-     RETURNING *
+
+        INSERT INTO images
+        (image)
+        VALUES ($1)
+        RETURNING *
+
      `, [image.image]);
      for (let tag of splitTags) {
        db.one(`
+
        INSERT INTO safeboorutags
        (tag)
        VALUES ($1)
@@ -44,6 +47,9 @@ Image.create = (image, id) => {
       SELECT * FROM images`)
 }
 
+Image.edit = id => {
+  
+}
 Image.destroy = id => {
   return db.none(`
     DELETE FROM images

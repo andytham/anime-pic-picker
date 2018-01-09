@@ -5,7 +5,10 @@
     <title></title>
   </head>
   <body>
-    <%= JSON.stringify(tags) %>
-
+    <form action="submit">
+    <% for (let tag of tags) { %>
+      <div><%=  tag.tag %></div>
+      <%} %>
+    </form>
   </body>
 </html>

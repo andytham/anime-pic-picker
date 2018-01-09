@@ -8,6 +8,9 @@
     <% for (let image of images) { %>
         <img width="300px" src="<%= image.image %>" />
         <form action="<%= `/search/saved/${image.id}?_method=DELETE` %>" method="POST">
+          <div class="comment">
+            <a href="<%= `/search/saved/${image.id}` %>">Edit?</a>
+          </div>
         <input type="submit" value="Delete"/>
         </form>
       <% } %>

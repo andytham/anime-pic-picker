@@ -1,0 +1,10 @@
+<form action="/search/saved?_method=PUT" method="POST">
+<input type="text" name="comment" value=" <%= image.comment %>" />
+<input type="submit" value="edit" />
+<img src="<%= image.image %>" /> 
+
+
+<input class="save" type="text" name="tags" value="<%= image.tags %>" />
+  <input class="save" type="text" name="image" value="<%= image.image %>" />
+  <input class="save" type="text" name="id" value="<%= image.id %>" />
+  <input type="submit" value="save" />

@@ -16,4 +16,5 @@ safeboorutagController.index = (req, res) => {
 }
 
 
+
 module.exports = safeboorutagController;

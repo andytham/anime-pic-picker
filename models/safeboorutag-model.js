@@ -3,7 +3,7 @@ const Safeboorutag = {};
 
 Safeboorutag.findAll = () =>{
   return db.query(`
-  SELECT * FROM safeboorutags`)
+  SELECT DISTINCT tag FROM safeboorutags`)
 }
 
 Safeboorutag.findById = (id) => {

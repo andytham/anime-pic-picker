@@ -1,9 +1,12 @@
 const axios = require('axios');
 const imageController = {};
 const Image = require('../models/image-model.js')
+const Popular = require('../public/js/safebooru-sidebar.js')
 
 imageController.index = (req, res) => {
-  res.render('index.ejs')
+  res.render('index.ejs', {
+    Popular: Popular
+  });
 }
 //
 imageController.search = (req, res) => {

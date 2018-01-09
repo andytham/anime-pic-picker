@@ -1,63 +1,9 @@
+<div> Most Popular Tags </div>
 <ul>
-<li>
-  <div class="post-count">999054</div>
-  <div class="tag">solo</div>
-</li>
-<li>
-  <div class="post-count">959554</div>
-  <div class="tag">1girl</div>
-</li>
-<li>
-  <div class="post-count">924697</div>
-  <div class="tag">long_hair</div>
-</li>
-<li>
-  <div class="post-count">703802</div>
-  <div class="tag">highres</div>
-</li>
-<li>
-  <div class="post-count">622676</div>
-  <div class="tag">short_hair</div>
-</li>
-<li>
-  <div class="post-count">606467</div>
-  <div class="tag">smile</div>
-</li>
-<li>
-  <div class="post-count">473373</div>
-  <div class="tag">blush</div>
-</li>
-<li>
-  <div class="post-count">465362</div>
-  <div class="tag">touhou</div>
-</li>
-<li>
-  <div class="post-count">420921</div>
-  <div class="tag">open_mouth</div>
-</li>
-<li>
-  <div class="post-count">417742</div>
-  <div class="tag">blonde_hair</div>
-</li>
-<li>
-  <div class="post-count">414388</div>
-  <div class="tag">blue_eyes</div>
-</li>
-<li>
-  <div class="post-count">405882</div>
-  <div class="tag">looking_at_viewer</div>
-</li>
-<li>
-  <div class="post-count">390045</div>
-  <div class="tag">brown_hair</div>
-</li>
-<li>
-  <div class="post-count">378788</div>
-  <div class="tag">hat</div>
-</li>
-<li>
-  <div class="post-count">376719</div>
-  <div class="tag">skirt</div>
-</li>
+<% for (key in Popular) { %>
+  <li>
+      <div class="tag"><%= key %></div> (<%= Popular[key] %>)
+  </li>
+  <% } %>
 
 </ul>

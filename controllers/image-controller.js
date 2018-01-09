@@ -12,7 +12,7 @@ imageController.index = (req, res) => {
 imageController.search = (req, res) => {
   axios({
     method: 'get',
-    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=5&json=1&tags=${req.body.search}
+    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=6&json=1&pid=10&tags=-rating:questionable&tags=${req.body.search}
 `
   })
   .then( data => {

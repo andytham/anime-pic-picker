@@ -23,25 +23,25 @@ Image.create = (image, id) => {
      RETURNING *
      `, [image.image]);
      for (let tag of splitTags) {
-       let idFix = Number(image.id) + 1;
        db.one(`
        INSERT INTO safeboorutags
-       (tag, image_id)
-       VALUES ($1, $2)
-       RETURNING *`,[tag,idFix]);
+       (tag)
+       VALUES ($1)
+       RETURNING *`,[tag]);
+       db.none(`
+          UPDATE safeboorutags
+          SET image_id = images.id
+          FROM images
+          WHERE images.image = $1 AND image_id IS NULL
+          `, [image.image])
       }
+      // db.any(`
+      //   SELECT * FROM safeboorutags
+      //   JOIN images ON (safeboorutags.image_id = images.id)
+      //   `)
+
       return db.query(`
       SELECT * FROM images`)
-}
-
-Image.update = (image, id) => {
-  return db.none(`
-    UPDATE images SET
-    subject = $1,
-    content = $2
-    WHERE id = $3
-    `, [image.image, image.content, id]
-  );
 }
 
 Image.destroy = id => {

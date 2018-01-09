@@ -23,6 +23,11 @@ Safeboorutag.create = tag => {
     `, [tag.tag])
 }
 
+Safeboorutag.check =  check => {
+  return db.one(`SELECT id FROM images WHERE image = $1 `, [image.image])
+}
+
+
 Safeboorutag.update = (tag, id) => {
   return db.none(`
     UPDATE safeboorutags SET

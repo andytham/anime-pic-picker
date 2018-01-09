@@ -9,10 +9,12 @@ imageController.index = (req, res) => {
   });
 }
 //
+
 imageController.search = (req, res) => {
+  let randomPage = Math.trunc(Math.random() * 200);
   axios({
     method: 'get',
-    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=6&json=1&pid=10&tags=-rating:questionable&tags=${req.body.search}
+    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=6&json=1&pid=${randomPage}&tags=-rating:questionable&tags=${req.body.search}
 `
   })
   .then( data => {
@@ -33,9 +35,9 @@ imageController.search = (req, res) => {
 imageController.create = (req,res) => {
   Image.create({
     image: req.body.image,
-    id: req.body.id,
+
     tags: req.body.tags
-  })
+  }, req.body.id)
   .then(image => {
     return;
   }).catch(err=> {

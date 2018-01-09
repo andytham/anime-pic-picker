@@ -1,12 +1,18 @@
 const axios = require('axios');
 const safeboorutagController = {};
-const Safeboorutag = require('../models/image-model.js')
+const Safeboorutag = require('../models/safeboorutag-model.js')
 const Popular = require('../public/js/safebooru-sidebar.js')
 
 safeboorutagController.index = (req, res) => {
-  res.render('index.ejs', {
-    Popular: Popular
-  });
+  Safeboorutag.findAll()
+  .then(tags => {
+    res.render('safeboorutags.ejs', {
+      tags: tags,
+      Popular: Popular
+    }).catch(err => {
+      res.status(400).json(err)
+    })
+  })
 }
 
 

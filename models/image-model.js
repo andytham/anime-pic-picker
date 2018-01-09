@@ -13,6 +13,7 @@ Image.findById = (id) => {
     `, [id]
   );
 }
+
 Image.create = image => {
   return db.one(`
     INSERT INTO images

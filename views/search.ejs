@@ -8,6 +8,8 @@
   <body>
     Found <%= data.length %> results for <%= searchTerm %>
     <div class="images-container">
+      <% let tags = [] %>
+      <% let tagsCombined = [] %>
     <% for (let value of data) { %>
         <% let image = `${webSite}${value.directory}/${value.image}`; %>
         <div class="image-container">
@@ -15,13 +17,23 @@
           <a href="<%=`${image}` %>" name="selected">
           <img width="300px" src="<%= image%>">
           </a>
-          <form action="<%= `/search/saved?_method=POST` %>" method="POST">
+          <form action="/search/saved" method="POST">
+            <label for="description">Description</label>
+            <input class="save" type="text" name="image" value="<%= image %>" />
             <input type="submit" value="save" />
           </form>
         </div>
-
+        <% tags = data.tags.split(" ") %>
+        <% for (let i = 0; i < tags.length; i++) { %>
+          <% if(tagsCombined.indexOf(tags[i]) == -1){ %>
+          <%  tagsCombined.push(tags[i]) %>
+        <%   } %>
+      <%  } %>
     <% } %>
   </div>
-  <p>aerinjhnehnre</p>
+  <div>
+    <% tagsCombined %>
+  </div>
+  <a href="/search/saved"<p>saved</p></a>
   </body>
 </html>

@@ -1,5 +1,6 @@
 const axios = require('axios');
 const imageController = {};
+const Image = require('../models/image-model.js')
 
 imageController.index = (req, res) => {
   res.render('index.ejs')
@@ -30,13 +31,32 @@ imageController.create = (req,res) => {
   Image.create({
     image: req.body.image
   })
-  .then(()=> {
-    res.redirect('/')
+  .then(image => {
+    return;
   }).catch(err=> {
     res.status(400).json(err);
   })
 }
 
+imageController.showSaved = (req,res) => {
+  Image.findAll()
+  .then(images => {
+    res.render('saved.ejs', {
+      images:images
+    });
+  }).catch(err => {
+    res.status(400).json(err);
+  });
+}
+imageController.destroy = (req,res) => {
+  Image.destroy(req.params.id)
+  .then(() => {
+    res.redirect('/search/saved')
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  });
+}
 
 
 module.exports = imageController;

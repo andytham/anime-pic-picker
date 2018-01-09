@@ -20,7 +20,13 @@ p{
   opacity: 1;
   margin: 0 0 10px 0;
 }
-
+.save{
+  display: none;
+}
 img{
   width:100%;
+}
+.tags{
+  width: 100%
+  overflow:hidden;
 }

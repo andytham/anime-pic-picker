@@ -6,43 +6,13 @@ Safeboorutag.findAll = () =>{
   SELECT DISTINCT tag FROM safeboorutags`)
 }
 
-Safeboorutag.findById = (id) => {
-  return db.oneOrNone(`
+Safeboorutag.findByTag = (tag) => {
+  console.log("HEY WORK PLEASE",tag);
+  return db.query(`
     SELECT * FROM safeboorutags
-    WHERE id = $1
-    `, [id]
-  );
-}
-
-Safeboorutag.create = tag => {
-  return db.one(`
-    INSERT INTO safeboorutags
-    (tag)
-    VALUES ($1)
-    RETURNING *
-    `, [tag.tag])
-}
-
-Safeboorutag.check =  check => {
-  return db.one(`SELECT id FROM images WHERE image = $1 `, [image.image])
-}
-
-
-Safeboorutag.update = (tag, id) => {
-  return db.none(`
-    UPDATE safeboorutags SET
-    subject = $1,
-    content = $2
-    WHERE id = $3
-    `, [tag.subject, tag.content, id]
-  );
-}
-
-Safeboorutag.destroy = id => {
-  return db.none(`
-    DELETE FROM safeboorutags
-    WHERE id = $1
-    `, [id]
+    JOIN images ON (safeboorutags.image_id = images.id)
+    WHERE tag = $1
+    `, [tag]
   );
 }
 

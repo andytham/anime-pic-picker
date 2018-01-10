@@ -1,6 +1,7 @@
 const axios = require('axios');
 const imageController = {};
 const Image = require('../models/image-model.js')
+const Safeboorutag = require('../models/Safeboorutag-model.js')
 const Popular = require('../public/js/safebooru-sidebar.js')
 
 imageController.index = (req, res) => {
@@ -33,17 +34,67 @@ imageController.search = (req, res) => {
 }
 
 imageController.create = (req,res) => {
-  Image.create({
-    image: req.body.image,
-
-    tags: req.body.tags
-  }, req.body.id)
+  //return SELCT
+  Image.grab({
+    image: req.body.image
+  })
   .then(image => {
-    return;
-  }).catch(err=> {
+    if(image != null){
+      console.log("THIS IS IAMGE", image.image)}
+  }).catch(err => {
     res.status(400).json(err);
   })
+
+  Image.create({
+    image: req.body.image,
+    tags: req.body.tags
+  })
+  .then( image => {
+    // console.log('successfully created an imagee', image)
+
+    Image.createTEST({
+      image: req.body.image,
+      tags: req.body.tags
+    }, image.id)
+    .then( testData => {
+      console.log('test creation method works')
+    })
+    .catch(err => {
+      console.log('test error', err)
+      res.status(400).json(err);
+    })
+  })
+  .catch(err => {
+    console.log('create error', err)
+    res.status(400).json(err);
+  })
+
+
 }
+// imageController.create = (req,res,next) => {
+//   Image.create({
+//     image: req.body.image,
+//     tags: req.body.tags
+//   }, req.body.id)
+//   .then(image => {
+//     next();
+//   }).catch(err=> {
+//     res.status(400).json(err);
+//   })
+//
+// }
+//
+// imageController.createTEST = (req,res) => {
+//   Image.createTEST({
+//     image: req.body.image,
+//     tags: req.body.tags
+//   }, req.body.id)
+//   .then(image => {
+//     return;
+//   }).catch(err=> {
+//     res.status(400).json(err);
+//   })
+// }
 
 imageController.showSaved = (req,res) => {
   Image.findAll()
@@ -66,9 +117,19 @@ imageController.show = (req,res) => {
       res.status(400).json(err)
     })
 }
-imageController.edit = (req,res) => {
-
+imageController.update = (req,res) => {
+  Image.update({
+    image: req.body.image,
+    comment: req.body.comment
+  }, req.params.id)
+  .then(()=> {
+    res.redirect(`/search/saved/${req.params.id}`);
+  })
+  .catch(err => {
+    res.status(400).json(err)
+  })
 }
+
 imageController.destroy = (req,res) => {
   Image.destroy(req.params.id)
   .then(() => {

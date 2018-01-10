@@ -14,7 +14,7 @@
         <% let poop = `${webSite}${value.directory}/${value.image}`; %>
 
         <div class="image-container">
-          <a href="<%=`${image.image}` %>" name="selected">
+          <a href=" <%= `/search/saved/${image.id}` %>" name="selected">
           <img width="300px" src="<%= image.image%>">
           </a>
           <form action="/search/saved" method="POST">

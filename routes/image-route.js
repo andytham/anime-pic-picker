@@ -10,6 +10,7 @@ imageRouter.post('/search', imageController.search);
 imageRouter.post('/search/saved', imageController.create);
 imageRouter.get('/search/saved', imageController.showSaved);
 imageRouter.get('/search/saved/:id', imageController.show);
+imageRouter.put('/search/saved/:id', imageController.update);
 imageRouter.delete('/search/saved/:id', imageController.destroy);
 
 module.exports = imageRouter;

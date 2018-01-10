@@ -16,7 +16,7 @@ Image.findById = (id) => {
 
 Image.create = (image, id) => {
   let splitTags = image.tags.split(" ");
-    db.one(`
+    return db.one(`
 
         INSERT INTO images
         (image)
@@ -24,32 +24,55 @@ Image.create = (image, id) => {
         RETURNING *
 
      `, [image.image]);
-     for (let tag of splitTags) {
-       db.one(`
+     // for (let tag of splitTags) {
+     //   db.one(`
+     //
+     //   INSERT INTO safeboorutags
+     //   (tag)
+     //   VALUES ($1)
+     //   RETURNING *`,[tag]);
+     //
+     //  db.none(`
+     //    DELETE FROM safeboorutags
+     //    WHERE image_id = NULL
+     //    `)
+     //  }
+     //  return db.query(`
+     //  SELECT * FROM images`)
 
-       INSERT INTO safeboorutags
-       (tag)
-       VALUES ($1)
-       RETURNING *`,[tag]);
-       db.none(`
-          UPDATE safeboorutags
-          SET image_id = images.id
-          FROM images
-          WHERE images.image = $1 AND image_id IS NULL
-          `, [image.image])
-      }
-      // db.any(`
-      //   SELECT * FROM safeboorutags
-      //   JOIN images ON (safeboorutags.image_id = images.id)
-      //   `)
-
-      return db.query(`
-      SELECT * FROM images`)
 }
 
-Image.edit = id => {
-  
+Image.grab = (image) => {
+  return db.oneOrNone(`
+    SELECT * FROM images
+    WHERE image = $1`, [image.image])
 }
+
+Image.createTEST = (image, id) => {
+  console.log('CREATE TEST IS NOW RUNNING', image.image)
+  let splitTags = image.tags.split(" ");
+  for (let tag of splitTags) {
+    db.one(`
+    INSERT INTO safeboorutags
+    (tag, image_id)
+    VALUES ($1,$2)
+    RETURNING *`,[tag, id]);
+  }
+  console.log('UPDATE IMAGE IDS')
+
+    return db.query(`
+    SELECT * FROM images`)
+}
+
+Image.update = (image,id) => {
+  return db.none(`
+    UPDATE images SET
+    comment = $1
+    WHERE id = $2
+ `,
+  [image.comment, id]  )
+}
+
 Image.destroy = id => {
   return db.none(`
     DELETE FROM images

@@ -7,9 +7,10 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/header.css" />
   </head>
+  <% include partials/header.ejs %>
   <body>
-    <% include partials/header.ejs %>
-    <form action="/search" method="POST">
+
+    <form action="/search?_method=GET" method="POST">
     <input type="text" name="search" value="lelouch_lamperouge"/>
     <input type="submit" value="Search" />
   </form>

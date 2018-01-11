@@ -1,9 +1,11 @@
 <div> Most Popular Tags </div>
-<ul>
+<form id="popularform" action="/search/premade?_method=GET" method="POST" >
+  <select name="populartags" form="popularform">
+    <% let count = 0 %>
 <% for (key in Popular) { %>
-  <li>
-      <div class="tag"><%= key %></div> (<%= Popular[key] %>)
-  </li>
-  <% } %>
+  <option class="tag" value="<%= key %>"> <%= key %> </option>
 
-</ul>
+  <% } %>
+  </select>
+  <input type="submit" value="Search" />
+</form>

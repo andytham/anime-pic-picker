@@ -13,6 +13,7 @@ imageController.index = (req, res) => {
 
 imageController.search = (req, res) => {
   let randomPage = Math.trunc(Math.random() * 20) + 1;
+  console.log("this is page", randomPage)
   axios({
     method: 'get',
     url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=6&json=1&pid=${randomPage}&tags=-rating:questionable&tags=${req.body.search}
@@ -26,6 +27,31 @@ imageController.search = (req, res) => {
       test: "test",
       webSite: "http://safebooru.org/images/",
     })
+    //console.log('why u breaking', data)
+  })
+  .catch( err => {
+    res.status(500).json(err)
+  })
+  console.log('we done searchin');
+}
+
+imageController.searchPremade = (req,res) => {
+  console.log('SEARCH PREMADE')
+  let randomPage = Math.trunc(Math.random() * 20) + 1;
+  axios({
+    method: 'get',
+    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=6&json=1&pid=${randomPage}&tags=-rating:questionable&tags=${req.body.populartags}
+`
+  })
+  .then( data => {
+    // console.log('got this back', data.data)
+    console.log('hello world')
+    res.render('search.ejs', {
+      data: data.data,
+      searchTerm: req.body.populartags,
+      webSite: "http://safebooru.org/images/",
+    })
+    //console.log('why u breaking', data)
   })
   .catch( err => {
     res.status(500).json(err)

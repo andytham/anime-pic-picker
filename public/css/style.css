@@ -2,27 +2,27 @@ a{
   text-decoration: none;
   color: black;
 }
-p{
-  color: red;
-  background-color:green;
+body{
+  top: 75px;
+  position:absolute;
+  width: 100%;
 }
 .images-container{
   display:flex;
   justify-content: space-between;
   flex-wrap: wrap;
   min-width: 321px;
-  margin:auto 0;
+  max-width: 100%;
   border: 1px red solid;
 }
 
 .image-container{
-  min-width:90px;
-  max-width: 20%;
+  min-width: 150px;
+  max-width: 600px;
   overflow:hidden;
-
+  margin: auto 10px;
   opacity: 1;
-  margin: 0 0 10px 0;
-  margin: 0 auto;
+
   border: 1px green solid;
 }
 .save{
@@ -32,9 +32,13 @@ img{
   width:100%;
 }
 input[type="image"]{
+
   overflow:hidden;
+  width: 100%;
 }
 .tags{
   width: 100%
   overflow:hidden;
+}
+.display-image{
 }

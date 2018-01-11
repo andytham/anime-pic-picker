@@ -1,0 +1,40 @@
+a{
+  text-decoration: none;
+  color: black;
+}
+p{
+  color: red;
+  background-color:green;
+}
+.images-container{
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-width: 321px;
+  margin:auto 0;
+  border: 1px red solid;
+}
+
+.image-container{
+  min-width:90px;
+  max-width: 20%;
+  overflow:hidden;
+
+  opacity: 1;
+  margin: 0 0 10px 0;
+  margin: 0 auto;
+  border: 1px green solid;
+}
+.save{
+  display: none;
+}
+img{
+  width:100%;
+}
+input[type="image"]{
+  overflow:hidden;
+}
+.tags{
+  width: 100%
+  overflow:hidden;
+}

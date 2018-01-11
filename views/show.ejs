@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/header.css" />
+  </head>
+  <body>
+    <% include partials/header.ejs %>
+
+<form action="<%= `/saved/${image.id}?_method=PUT` %>" method="POST">
+  <input type="text" name="comment" value="<%= image.comment %>" />
+  <input type="submit" value="edit" />
+  <img src="<%= image.image %>" />
+</form>
+<a href="/saved"> Go Back </a>
+</body>

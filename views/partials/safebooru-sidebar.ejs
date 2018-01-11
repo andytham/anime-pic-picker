@@ -1,0 +1,9 @@
+<div> Most Popular Tags </div>
+<ul>
+<% for (key in Popular) { %>
+  <li>
+      <div class="tag"><%= key %></div> (<%= Popular[key] %>)
+  </li>
+  <% } %>
+
+</ul>

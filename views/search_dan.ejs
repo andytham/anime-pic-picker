@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% for (let value of data) { %>
+      <% if (value.rating == 's')  { %>
+        <img width="200px" src="<%= `${webSite}${value.preview_file_url}`%>">
+
+      <% } %>
+   <% } %>
+  </body>
+</html>

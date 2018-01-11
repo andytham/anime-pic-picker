@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/header.css" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/stopform.js"> </script>
+  </head>
+  <body>
+    <% include partials/header.ejs %>
+    Found <%= data.length %> results for "<%= searchTerm %>"
+    <div class="images-container">
+      <% let tags = [] %>
+      <% let tagsCombined = [] %>
+    <% for (let [index,value] of data.entries()) { %>
+      <% let image = {image:`${webSite}${value.directory}/${value.image}`,id: `${index}`, tags: `${value.tags}`}%>
+        <% let poop = `https://safebooru.org/thumbnails/${value.directory}/thumbnail_${value.image}`; %>
+        <%console.log('THIS IS POOP', poop)%>
+        <div class="image-container">
+          <form id="add" action="/saved" method="POST">
+
+
+
+          <input class="save" type="text" name="tags" value="<%= image.tags %>" />
+            <input class="save" type="text" name="image" value="<%= image.image %>" />
+            <input class="save" type="text" name="id" value="<%= image.id %>" />
+            <input class="display-image" type="image" src="<%=poop%>" value="save" />
+          </form>
+        </div>
+
+
+
+        <% tags = value.tags.split(" ") %>
+        <% for (let i = 0; i < tags.length; i++) { %>
+          <% if(tagsCombined.indexOf(tags[i]) == -1){ %>
+          <%  tagsCombined.push(tags[i]) %>
+        <%   } %>
+      <%  } %>
+    <% } %>
+  </div>
+
+  </body>
+</html>

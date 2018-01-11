@@ -35,41 +35,41 @@ imageController.search = (req, res) => {
 
 imageController.create = (req,res) => {
   //return SELCT
+
   Image.grab({
     image: req.body.image
   })
   .then(image => {
-    if(image != null){
-      console.log("THIS IS IAMGE", image.image)}
-  }).catch(err => {
-    res.status(400).json(err);
-  })
-
-  Image.create({
-    image: req.body.image,
-    tags: req.body.tags
-  })
-  .then( image => {
-    // console.log('successfully created an imagee', image)
-
-    Image.createTEST({
-      image: req.body.image,
-      tags: req.body.tags
-    }, image.id)
-    .then( testData => {
-      console.log('test creation method works')
-    })
-    .catch(err => {
-      console.log('test error', err)
-      res.status(400).json(err);
-    })
+    if(image == null){
+      Image.create({
+        image: req.body.image,
+        tags: req.body.tags
+      })
+      .then(image => {
+        // console.log('successfully created an imagee', image)
+          Image.createTEST({
+            image: req.body.image,
+            tags: req.body.tags
+          }, image.id)
+          .then( testData => {
+            console.log('test creation method works')
+          })
+          .catch(err => {
+            console.log('test error', err)
+            res.status(400).json(err);
+          })
+        })
+      .catch(err => {
+          res.status(400).json(err);
+        })
+    } else {
+      console.log(image.image, "already exists")
+    }
   })
   .catch(err => {
-    console.log('create error', err)
+    console.log('test error', err)
     res.status(400).json(err);
   })
-
-
 }
 // imageController.create = (req,res,next) => {
 //   Image.create({

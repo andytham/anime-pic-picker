@@ -27,6 +27,5 @@ app.use('/', require('./routes/image-route.js'));
 app.use('/tags',require('./routes/safeboorutag-route.js'))
 
 app.get('*', (req,res) =>{
-  res.send('broke')
-  //res.redirect('/');
+res.redirect('/');
 })

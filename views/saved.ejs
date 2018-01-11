@@ -5,14 +5,18 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/header.css" />
+  </head>
+  <body>
+    <% include partials/header.ejs %>
 
-</head>
-<body>
-<% include partials/header.ejs %>
+    <div class="images-container">
     <% for (let image of images) { %>
+      <div class="image-container">
         <a href="<%= `/saved/${image.id}` %>">
-          <img width="300px" src="<%= image.image %>" />
+          <img src="<%= image.image %>" />
         </a>
+        </div>
         <form action="<%= `/saved/${image.id}?_method=DELETE` %>" method="POST">
           <div class="comment">
             <%= image.comment %>
@@ -20,7 +24,7 @@
         <input type="submit" value="Delete"/>
         </form>
       <% } %>
-
+</div>
     <a href="/">back</a>
   </body>
 </html>

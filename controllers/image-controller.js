@@ -53,6 +53,7 @@ imageController.create = (req,res) => {
           }, image.id)
           .then( testData => {
             console.log('test creation method works')
+
           })
           .catch(err => {
             console.log('test error', err)

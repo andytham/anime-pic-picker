@@ -11,7 +11,8 @@ p{
   justify-content: space-between;
   flex-wrap: wrap;
   min-width: 321px;
-  margin:0 auto;
+  margin:auto 0;
+  border: 1px red solid;
 }
 
 .image-container{
@@ -22,6 +23,7 @@ p{
   opacity: 1;
   margin: 0 0 10px 0;
   margin: 0 auto;
+  border: 1px green solid;
 }
 .save{
   display: none;
@@ -30,7 +32,7 @@ img{
   width:100%;
 }
 input[type="image"]{
-  overflow:hidden;  
+  overflow:hidden;
 }
 .tags{
   width: 100%

@@ -6,7 +6,6 @@ imageRouter.get('/', imageController.index);
 imageRouter.post('/search', imageController.search);
 // imageRouter.get('/search/:id', imageController.show);
 // imageRouter.get('/search/*', imageController.showSelected);
-//imageRouter.post('/search?*', imageController.create);
 imageRouter.post('/saved', imageController.create);
 imageRouter.get('/saved', imageController.showSaved);
 imageRouter.get('/saved/:id', imageController.show);

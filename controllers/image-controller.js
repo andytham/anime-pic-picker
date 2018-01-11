@@ -12,7 +12,7 @@ imageController.index = (req, res) => {
 //
 
 imageController.search = (req, res) => {
-  let randomPage = Math.trunc(Math.random() * 200);
+  let randomPage = Math.trunc(Math.random() * 20) + 1;
   axios({
     method: 'get',
     url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=6&json=1&pid=${randomPage}&tags=-rating:questionable&tags=${req.body.search}
@@ -22,7 +22,7 @@ imageController.search = (req, res) => {
     // console.log('got this back', data.data)
     res.render('search.ejs', {
       data: data.data,
-      searchTerm: req.params.search,
+      searchTerm: req.body.search,
       test: "test",
       webSite: "http://safebooru.org/images/",
     })

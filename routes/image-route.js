@@ -6,11 +6,11 @@ imageRouter.get('/', imageController.index);
 imageRouter.post('/search', imageController.search);
 // imageRouter.get('/search/:id', imageController.show);
 // imageRouter.get('/search/*', imageController.showSelected);
-
-imageRouter.post('/search/saved', imageController.create);
-imageRouter.get('/search/saved', imageController.showSaved);
-imageRouter.get('/search/saved/:id', imageController.show);
-imageRouter.put('/search/saved/:id', imageController.update);
-imageRouter.delete('/search/saved/:id', imageController.destroy);
+//imageRouter.post('/search?*', imageController.create);
+imageRouter.post('/saved', imageController.create);
+imageRouter.get('/saved', imageController.showSaved);
+imageRouter.get('/saved/:id', imageController.show);
+imageRouter.put('/saved/:id', imageController.update);
+imageRouter.delete('/saved/:id', imageController.destroy);
 
 module.exports = imageRouter;

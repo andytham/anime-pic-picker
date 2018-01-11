@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/header.css" />
   </head>
   <body>
+    <% include partials/header.ejs %>
     <form action="/search" method="POST">
     <input type="text" name="search" value="lelouch_lamperouge"/>
     <input type="submit" value="Search" />

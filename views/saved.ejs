@@ -3,13 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+</head>
+<body>
+<% include partials/header.ejs %>
     <% for (let image of images) { %>
-        <a href="<%= `/search/saved/${image.id}` %>">
+        <a href="<%= `/saved/${image.id}` %>">
           <img width="300px" src="<%= image.image %>" />
         </a>
-        <form action="<%= `/search/saved/${image.id}?_method=DELETE` %>" method="POST">
+        <form action="<%= `/saved/${image.id}?_method=DELETE` %>" method="POST">
           <div class="comment">
             <%= image.comment %>
           </div>

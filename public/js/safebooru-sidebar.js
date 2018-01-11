@@ -17,5 +17,4 @@ const Popular = {
   brown_hair:390045,
   skirt:376719
 }
-console.log(Popular)
 module.exports = Popular;

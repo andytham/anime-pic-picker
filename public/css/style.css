@@ -1,5 +1,6 @@
-*{
-  background-color:red;
+a{
+  text-decoration: none;
+  color: black;
 }
 p{
   color: red;
@@ -7,24 +8,29 @@ p{
 }
 .images-container{
   display:flex;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-width: 321px;
   margin:0 auto;
 }
 
 .image-container{
-  width:100%;
+  min-width:90px;
+  max-width: 20%;
   overflow:hidden;
 
   opacity: 1;
   margin: 0 0 10px 0;
+  margin: 0 auto;
 }
 .save{
   display: none;
 }
 img{
   width:100%;
+}
+input[type="image"]{
+  overflow:hidden;  
 }
 .tags{
   width: 100%

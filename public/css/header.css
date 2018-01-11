@@ -1,0 +1,13 @@
+.header-wrapper{
+  height:70px;
+  background: gray;
+  border: 1px black solid;
+  width: 100%;
+}
+
+.left-header{
+  text-align: left;
+}
+.right-header{
+  text-align:right;
+}

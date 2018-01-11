@@ -2,26 +2,26 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
   </head>
   <body>
-    Found <%= data.length %> results for <%= searchTerm %>
+    <% include partials/header.ejs %>
+    Found <%= data.length %> results for "<%= searchTerm %>"
     <div class="images-container">
       <% let tags = [] %>
       <% let tagsCombined = [] %>
     <% for (let [index,value] of data.entries()) { %>
       <% let image = {image:`${webSite}${value.directory}/${value.image}`,id: `${index}`, tags: `${value.tags}`}%>
-        <% let poop = `${webSite}${value.directory}/${value.image}`; %>
-
+        <% let poop = `https://safebooru.org/thumbnails/${value.directory}/thumbnail_${value.image}`; %>
+        <%console.log('THIS IS POOP', poop)%>
         <div class="image-container">
-          <a href=" <%= `/search/saved/${image.id}` %>" name="selected">
-          <img width="300px" src="<%= image.image%>">
-          </a>
-          <form action="/search/saved" method="POST">
+          <form action="/saved" method="POST">
           <input class="save" type="text" name="tags" value="<%= image.tags %>" />
             <input class="save" type="text" name="image" value="<%= image.image %>" />
             <input class="save" type="text" name="id" value="<%= image.id %>" />
-            <input type="submit" value="save" />
+            <input class="display-image" type="image" src="<%=poop%>" value="save" />
           </form>
         </div>
 
@@ -35,12 +35,6 @@
       <%  } %>
     <% } %>
   </div>
-  <div class="tags">
-    Current tags:
-    <% for (let i = 0; i < tagsCombined.length; i++) { %>
-      <%= tagsCombined[i]; %>
-    <%} %>
-  </div>
-  <a href="/search/saved"<p>saved</p></a>
+
   </body>
 </html>

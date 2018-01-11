@@ -9,9 +9,9 @@ safeboorutagController.index = (req, res) => {
     res.render('safeboorutags.ejs', {
       tags: tags,
       Popular: Popular
-    }).catch(err => {
-      res.status(400).json(err)
     })
+  }).catch(err => {
+      res.status(400).json(err)
   })
 }
 safeboorutagController.showSaved = (req, res) => {

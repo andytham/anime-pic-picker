@@ -40,14 +40,14 @@ imageController.create = (req,res) => {
     image: req.body.image
   })
   .then(image => {
-    if(image == null){
+    if(image == null){ //checks if image already exists in database
       Image.create({
         image: req.body.image,
         tags: req.body.tags
       })
       .then(image => {
-        // console.log('successfully created an imagee', image)
-          Image.createTEST({
+        // console.log('successfully created an image', image)
+          Safeboorutag.create({ //create tags after creating image in db
             image: req.body.image,
             tags: req.body.tags
           }, image.id)
@@ -71,30 +71,6 @@ imageController.create = (req,res) => {
     res.status(400).json(err);
   })
 }
-// imageController.create = (req,res,next) => {
-//   Image.create({
-//     image: req.body.image,
-//     tags: req.body.tags
-//   }, req.body.id)
-//   .then(image => {
-//     next();
-//   }).catch(err=> {
-//     res.status(400).json(err);
-//   })
-//
-// }
-//
-// imageController.createTEST = (req,res) => {
-//   Image.createTEST({
-//     image: req.body.image,
-//     tags: req.body.tags
-//   }, req.body.id)
-//   .then(image => {
-//     return;
-//   }).catch(err=> {
-//     res.status(400).json(err);
-//   })
-// }
 
 imageController.showSaved = (req,res) => {
   Image.findAll()

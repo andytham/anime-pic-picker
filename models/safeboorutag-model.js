@@ -15,5 +15,19 @@ Safeboorutag.findByTag = (tag) => {
     `, [tag]
   );
 }
+Safeboorutag.create = (image, id) => {
+  console.log('CREATE TEST IS NOW RUNNING', image.image)
+  let splitTags = image.tags.split(" ");
+  for (let tag of splitTags) {
+    db.one(`
+    INSERT INTO safeboorutags
+    (tag, image_id)
+    VALUES ($1,$2)
+    RETURNING *`,[tag, id]);
+  }
+  console.log('UPDATE IMAGE IDS')
 
+    return db.query(`
+    SELECT * FROM images`)
+}
 module.exports = Safeboorutag;

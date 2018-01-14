@@ -126,7 +126,7 @@ imageController.update = (req,res) => {
     comment: req.body.comment
   }, req.params.id)
   .then(()=> {
-    res.redirect(`/search/saved/${req.params.id}`);
+    res.redirect(`/saved/${req.params.id}`);
   })
   .catch(err => {
     res.status(400).json(err)

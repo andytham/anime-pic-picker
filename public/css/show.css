@@ -1,0 +1,25 @@
+.show{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  border: 1px solid red;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.show-comment{
+  margin: 0 auto;
+}
+
+.show-title{
+  margin: 0 auto;
+  text-align: left;
+}
+
+.text-container{
+  display:flex;
+  justify-content: stretch;
+  flex-direction: column;
+  border: 1px green solid;
+}

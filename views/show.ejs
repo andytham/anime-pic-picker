@@ -1,18 +1,28 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/css/header.css" />
-  </head>
+  <title> Single Image View </title>
+  <% include partials/head.ejs %>
+  <% include partials/header.ejs %>
   <body>
-    <% include partials/header.ejs %>
+
 
 <form action="<%= `/saved/${image.id}?_method=PUT` %>" method="POST">
-  <input type="text" name="comment" value="<%= image.comment %>" />
-  <input type="submit" value="edit" />
-  <img src="<%= image.image %>" />
+<div class="show">
+  <div><img src="<%= image.image %>" /></div>
+  <div class='text-container'>
+
+    <div class="show-title">
+      <label text="title">Title</label>
+      <input type="text" name="title" value="<%= image.title %>" /></div>
+    <div class="show-comment">
+      <label> Comment </label>
+      <input type="text" name="comment" value="<%= image.comment %>" />
+    </div>
+    <div>
+      <input class="edit button" type="image" href="images/edit.png" value="fadsfsa" />
+    </div>
+
+  </div>
+  </div>
 </form>
-<a href="/saved"> Go Back </a>
+
 </body>

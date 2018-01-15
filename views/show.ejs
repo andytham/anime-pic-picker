@@ -1,5 +1,7 @@
 <html>
   <title> Single Image View </title>
+  <link rel="stylesheet" type="text/css" href="/css/show.css" />
+  
   <% include partials/head.ejs %>
   <% include partials/header.ejs %>
   <body>
@@ -12,16 +14,18 @@
 
     <div class="show-title">
       <label text="title">Title</label>
-      <input type="text" name="title" value="<%= image.title %>" /></div>
+      <div><input type="text" name="title" value="<%= image.title %>" /></div>
+    </div>
     <div class="show-comment">
       <label> Comment </label>
-      <input type="text" name="comment" value="<%= image.comment %>" />
+      <div><input class="comment" type="text" name="comment" value="<%= image.comment %>" /></div>
     </div>
-    <div>
-      <input class="edit button" type="image" href="images/edit.png" value="fadsfsa" />
+    <div class="two-button">
+      <div><input type="image" class="edit button"  src="../images/save2.png" alt="edit" /></div>
+      <div><input type="image" class="delete button"  src="../images/delete.png" alt="delete" /></div>
     </div>
 
-  </div>
+    </div>
   </div>
 </form>
 

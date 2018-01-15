@@ -134,9 +134,13 @@ imageController.update = (req,res) => {
 }
 
 imageController.destroy = (req,res) => {
+  Safeboorutag.destroy(req.params.id)
+  .catch(err => {
+    res.status(400).json(err);
+  });
   Image.destroy(req.params.id)
   .then(() => {
-    res.redirect('/search/saved')
+    res.redirect('/saved')
   })
   .catch(err => {
     res.status(400).json(err);

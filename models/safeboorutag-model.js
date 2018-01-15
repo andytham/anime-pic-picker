@@ -30,4 +30,12 @@ Safeboorutag.create = (image, id) => {
     return db.query(`
     SELECT * FROM images`)
 }
+
+Safeboorutag.destroy = id => {
+  return db.none(`
+    DELETE FROM safeboorutags
+    WHERE image_id = $1
+    `, [id]
+  );
+}
 module.exports = Safeboorutag;

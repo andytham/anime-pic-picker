@@ -8,18 +8,39 @@
   justify-content: center;
 }
 
-.show-comment{
-  margin: 0 auto;
-}
-
-.show-title{
-  margin: 0 auto;
-  text-align: left;
-}
-
 .text-container{
   display:flex;
-  justify-content: stretch;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
   border: 1px green solid;
+}
+
+.two-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border:1px solid black;
+  width: 100%;
+}
+
+
+label{
+  width: 80px;
+}
+.show-title{
+  display:flex;
+  flex-direction: row;
+}
+.show-comment{
+  display:flex;
+    flex-direction: row;
+}
+
+textarea{
+  resize:none;
+}
+
+.comment{
+  word-break: break-word;
 }

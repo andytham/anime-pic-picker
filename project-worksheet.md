@@ -148,7 +148,7 @@ This code snippet is the controller method to push two different sets of data to
 Auth no longer in the MVP because users tables does not fit requirement in using two databases and relating them together. Therefore Oauth is simply the POST MVP.
 
 ## Issues and Resolutions
-**ERROR**: Page requiring res or will refuse connection, but wanting to stay on the page.
+**ERROR**: View using POST method which requires a response or it will refuse connection, but wanting to stay on the page.
 **RESOLUTION**: Use AJAX instead to make the call.
 
 **ERROR**: Inputs don't count as flex items

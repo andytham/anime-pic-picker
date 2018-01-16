@@ -1,7 +1,7 @@
 const axios = require('axios');
 const imageController = {};
 const Image = require('../models/image-model.js')
-const Safeboorutag = require('../models/Safeboorutag-model.js')
+const Safeboorutag = require('../models/safeboorutag-model.js')
 const Popular = require('../public/js/safebooru-sidebar.js')
 
 imageController.index = (req, res) => {

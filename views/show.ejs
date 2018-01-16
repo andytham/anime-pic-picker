@@ -1,7 +1,7 @@
 <html>
   <title> Single Image View </title>
   <link rel="stylesheet" type="text/css" href="/css/show.css" />
-  
+
   <% include partials/head.ejs %>
   <% include partials/header.ejs %>
   <body>
@@ -9,13 +9,9 @@
 
 <form action="<%= `/saved/${image.id}?_method=PUT` %>" method="POST">
 <div class="show">
-  <div><img src="<%= image.image %>" /></div>
+  <div><a href="<%= image.image %>"><img src="<%= image.image %>" /></a></div>
   <div class='text-container'>
 
-    <div class="show-title">
-      <label text="title">Title</label>
-      <div><input type="text" name="title" value="<%= image.title %>" /></div>
-    </div>
     <div class="show-comment">
       <label> Comment </label>
       <div><input class="comment" type="text" name="comment" value="<%= image.comment %>" /></div>

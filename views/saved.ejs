@@ -1,30 +1,31 @@
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/css/header.css" />
-  </head>
+  <% include partials/head.ejs %>
+  <% include partials/header.ejs %>
   <body>
-    <% include partials/header.ejs %>
 
-    <div class="images-container">
+  <div class="saved-all-container">
+
     <% for (let image of images) { %>
-      <div class="image-container">
-        <a href="<%= `/saved/${image.id}` %>">
-          <img src="<%= image.image %>" />
-        </a>
-        </div>
-        <form action="<%= `/saved/${image.id}?_method=DELETE` %>" method="POST">
-          <div class="comment">
-            <%= image.comment %>
-          </div>
-        <input type="submit" value="Delete"/>
-        </form>
-      <% } %>
+      <div class="saved-container">
+
+          <form class="hover-container" action="<%= `/saved/${image.id}?_method=DELETE` %>" method="POST">
+
+            <input class="delete button saved-image-hover" type="image" src="images/delete.png" value="delete"/>
+            <a href="<%= `/saved/${image.id}` %>">
+              <img class="edit button saved-image-hover" src="images/edit.png" />
+            </a>
+            <div class="comment">
+              <%= image.comment %>
+            </div>
+          </form>
+
+        <img class="saved-image" src="<%= image.image %>" />
+
+      </div>
+    <% } %>
 </div>
-    <a href="/">back</a>
+
+  <script src='js/clickonsaved.js'> </script>
   </body>
 </html>

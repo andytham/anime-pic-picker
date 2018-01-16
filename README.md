@@ -1,32 +1,3 @@
-# Wireframe
-![pic](http://res.cloudinary.com/andytham/image/upload/v1515439400/project2/wireframe.jpg)
-# Time Priority Matrix
-
-![pic](http://res.cloudinary.com/andytham/image/upload/v1515439399/project2/tp.jpg)
-# MVP
-
-- CRUD
-- auth
-- user favorites (images and tags)
-- image API
-- database (users, images, favorites)
-- Users can search tags for images, then add the images or tags into their saved/favorite
-- Users can bring up their favorites and see what they liked
-
-
-# POST MVP
-- multiple image APIs
-- OAuth
-- Allow users to download
-
-# Components
-| Component | Priority | Estimated Time | Time Invested | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
-| config | M | 1 hrs| 1 hrs | 1 hrs |
-| app.js | M | 1 hrs| 1 hrs | 1 hrs  |
-| 1 API | H | 3 hrs| 4 hrs | 4 hrs  |
-
-
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
 # WDI Project Two
@@ -67,7 +38,8 @@ Resist the urge to jump immediately into coding.  For this sprint we want to car
 
 - Database - draw out the tables & columns you plan to use in your database (ERD - Entity Relationship Diagram - is a fancy word for it)
 - Wireframes - detail the flow of your app through simple wireframes
-
+  * You can choose whether you want to whiteboard the wireframes or use some program.
+  * Refer back to the [todo app wireframes](./helpers/wireframes.md) for an example of what we expect!
 - Routes - design the HTTP route architecture of your app
 - Set up a separate standing github repo (NOT this repo!) and **project board** for your project
 - Find an API that you plan on using and test it out

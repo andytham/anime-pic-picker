@@ -1,5 +1,19 @@
-<a href="/tags"> Go back to tags </a>
-<br />
-<% for (let value of tag) { %>
-  <img width="300px" src="<%= value.image %>" />
-<% } %>
+<html>
+  <% include partials/head.ejs %>
+
+
+  <link rel="stylesheet" type="text/css" href="/css/tags.css" />
+  <body class="tags-ejs">
+
+      <% include partials/header.ejs %>
+      <% include partials/tags-sidebar.ejs %>
+
+      <div class="content">
+        <% for (let value of tag) { %>
+          <a href="../saved/<%= value.id %>">
+          <img width="300px" src="<%= value.image %>" />
+          </a>
+        <% } %>
+      </div>
+  </body>
+</html>

@@ -1,40 +1,122 @@
+/* design for 1366x768, the most common	*/
+*{
+  font-family: 'Indie Flower', cursive;
+}
 a{
   text-decoration: none;
   color: black;
 }
-p{
-  color: red;
-  background-color:green;
+div{
+  font-family: 'Indie Flower', cursive;
+}
+body{
+  top: 75px;
+  position:absolute;
+  width: 100%;
+  display:grid;
 }
 .images-container{
   display:flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  min-width: 321px;
-  margin:auto 0;
-  border: 1px red solid;
+  min-width: 305px;
+  max-width: 100%;
+  overflow:hidden;
 }
 
 .image-container{
-  min-width:90px;
-  max-width: 20%;
   overflow:hidden;
-
+  margin: auto 10px;
   opacity: 1;
-  margin: 0 0 10px 0;
-  margin: 0 auto;
-  border: 1px green solid;
 }
 .save{
   display: none;
 }
-img{
-  width:100%;
-}
-input[type="image"]{
-  overflow:hidden;
-}
+
 .tags{
   width: 100%
   overflow:hidden;
+}
+
+/* index */
+.height-fix{
+  max-height: 100vh;
+}
+.index-container{
+  height: 100%;
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.big-search{
+  position:relative;
+  left: 15px;
+}
+
+.search-image-1{
+  position: relative;
+
+  left: -30px;
+  width: 20px;
+}
+
+.search-image{
+  width:20px;
+}
+
+.index-text{
+  font-size: 25px;
+  font-family: 'Indie Flower', cursive;
+  line-height: 40px;
+}
+
+/* show saved */
+.saved-all-container{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width:100%;
+}
+.saved-container{
+  max-width: 650px;
+  padding: 15px 0;
+}
+.hover-container{
+  display:flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  max-width: 650px;
+
+}
+.saved-image{
+  width: 100%;
+  max-height: 100%;
+  position: relative;
+  top:-36px;
+  z-index: 3;
+  margin-bottom: -36px;
+}
+
+.button{
+  width: 30px;
+  margin: 3px;
+  position: relative;
+  right:0px;
+  z-index: 2;
+}
+
+.comment{
+  z-index: 2;
+  text-align:left;
+  flex-grow: 1;
+}
+
+@media only screen and (max-width : 480px) {
+  body{
+    top: 100px;
+  }
+
 }

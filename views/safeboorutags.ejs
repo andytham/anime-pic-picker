@@ -1,20 +1,14 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-        <link rel="stylesheet" type="text/css" href="/css/style.css" />
-  </head>
-  <body>
+  <% include partials/head.ejs %>
+  <link rel="stylesheet" type="text/css" href="/css/tags.css" />
+  <body class="tags-ejs">
+  <% include partials/header.ejs %>
 
-    <% for (let tag of tags) { %>
-      <div>
-      <a class="tag-link" href="<%= `/tags/${tag.tag}` %>">
-        <%= tag.tag %>
-      </a>
-      </div>
-      <%} %>
-    </form>
-    <a href="/"> go back </a>
+
+  <% include partials/tags-sidebar.ejs %>
+  <div class="content"> </div>
+
+
 
   </body>
 </html>

@@ -1,0 +1,18 @@
+img{
+  max-width: 1000px;
+}
+
+.delete{
+  display:block;
+}
+
+.saved-all-container{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  justify-items: center;
+  justify-content: stretch;
+  align-content: stretch;
+  grid-gap: 10px;
+}

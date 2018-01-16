@@ -1,0 +1,11 @@
+<div class="sidebar">
+  <div class="inner-sidebar">
+    <% for (let tag of tags) { %>
+      <div class="tag">>
+      <a class="tag-link" href="<%= `/tags/${tag.tag}` %>">
+        <%= tag.tag %>
+      </a>
+      </div>
+    <% } %>
+  </div>
+</div>

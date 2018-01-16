@@ -14,7 +14,7 @@ Image.findById = (id) => {
   );
 }
 
-Image.create = (image, id) => {
+Image.create = (image) => {
   let splitTags = image.tags.split(" ");
     return db.one(`
 

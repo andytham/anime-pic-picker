@@ -1,6 +1,13 @@
+/* design for 1366x768, the most common	*/
+*{
+  font-family: 'Indie Flower', cursive;
+}
 a{
   text-decoration: none;
   color: black;
+}
+div{
+  font-family: 'Indie Flower', cursive;
 }
 body{
   top: 75px;
@@ -12,18 +19,15 @@ body{
   display:flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  min-width: 321px;
+  min-width: 305px;
   max-width: 100%;
-  border: 1px red solid;
   overflow:hidden;
-
 }
 
 .image-container{
   overflow:hidden;
   margin: auto 10px;
   opacity: 1;
-  border: 1px green solid;
 }
 .save{
   display: none;
@@ -34,26 +38,62 @@ body{
   overflow:hidden;
 }
 
+/* index */
+.height-fix{
+  max-height: 100vh;
+}
+.index-container{
+  height: 100%;
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}
 
+.big-search{
+  position:relative;
+  left: 15px;
+}
 
+.search-image-1{
+  position: relative;
+
+  left: -30px;
+  width: 20px;
+}
+
+.search-image{
+  width:20px;
+}
+
+.index-text{
+  font-size: 25px;
+  font-family: 'Indie Flower', cursive;
+  line-height: 40px;
+}
 
 /* show saved */
 .saved-all-container{
   display:flex;
-  flex-direction: column;
-
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width:100%;
 }
 .saved-container{
-  margin: 0 auto;
-    border: 1px blue solid;
+  max-width: 650px;
+  padding: 15px 0;
 }
 .hover-container{
   display:flex;
   align-items: flex-start;
   flex-direction: row-reverse;
+  max-width: 650px;
 
 }
 .saved-image{
+  width: 100%;
+  max-height: 100%;
   position: relative;
   top:-36px;
   z-index: 3;
@@ -70,4 +110,13 @@ body{
 
 .comment{
   z-index: 2;
+  text-align:left;
+  flex-grow: 1;
+}
+
+@media only screen and (max-width : 480px) {
+  body{
+    top: 100px;
+  }
+
 }

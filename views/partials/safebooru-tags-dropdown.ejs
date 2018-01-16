@@ -1,0 +1,11 @@
+
+<form id="popularform" action="/search/premade?_method=GET" method="POST" >
+  <select name="populartags" style='font-size: 25px; width: 270px;' form="popularform">
+    <% let count = 0 %>
+<% for (key in Popular) { %>
+  <option class="tag"  value="<%= key %>"> <%= key %> </option>
+
+<% } %>
+  </select>
+  <input class="search-image" type="image" src="images/search.png" alt="Search" />
+</form>

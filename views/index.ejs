@@ -2,15 +2,29 @@
   <% include partials/head.ejs %>
   <% include partials/header.ejs %>
   <body>
+<div class="height-fix">
+<div class="index-container">
+  <div class="index-text">
+    Search using a tag
+  </div>
 
+  <div class="big-search">
     <form action="/search?_method=GET" method="POST">
-    <input type="text" name="search" value="lelouch_lamperouge"/>
-    <input type="submit" value="Search" />
-  </form>
-    <a href='/tags'>tags </a>
-    <div> lelouch_lamperouge </div>
-    <div> boa_hancock </div>
+      <input type="text" style='font-size: 25px; width: 300px;'  name="search" value="lelouch_lamperouge"/>
+      <input class="search-image-1" type="image" src="images/search.png" alt="Search" />
+    </form>
+  </div>
 
-  <% include partials/safebooru-sidebar.ejs %>
+  <br/>
+  <br/>
+
+  <div class="index-text">
+    or choose a popular tag:
+  </div>
+  <div>
+    <% include partials/safebooru-tags-dropdown.ejs %>
+  </div>
+</div>
+</div>
   </body>
 </html>

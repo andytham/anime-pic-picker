@@ -9,9 +9,11 @@ for (let i=0; i < length; i++){
   savedImages[i].addEventListener('click', () => {
     if(savedImages[i].style.zIndex == 3){
       savedImages[i].style.zIndex = 1;
+      savedImages[i].style.opacity = .7;
       console.log('zindex now', savedImages[i].style.zIndex);
     } else if (savedImages[i].style.zIndex == 1){
       savedImages[i].style.zIndex = 3;
+      savedImages[i].style.opacity = 1;
       console.log('zindex now', savedImages[i].style.zIndex);
     }
   })

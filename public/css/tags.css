@@ -1,0 +1,48 @@
+.tags-ejs{
+  display:grid;
+  grid-template-rows: 70px auto;
+  grid-template-columns: 300px auto;
+  top: 0px;
+}
+
+.header-wrapper{
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 1;
+}
+
+.sidebar{
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  background-color: rgb(93, 191, 252);
+  height: 100vh;
+  font-size: 20px;
+}
+
+.content{
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+  margin: 10px;
+}
+
+.inner-sidebar{
+  max-height:100%;
+  overflow-y:auto;
+}
+
+@media only screen and (max-width : 480px){
+  .tags-ejs{
+    display:grid;
+    grid-template-rows: 70px 200px auto;
+    grid-template-columns: auto;
+    top: 0px;
+  }
+  .sidebar{
+    top: 10px;
+    height: 200px;
+  }
+  .content{
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+    margin: 10px;
+  }
+}

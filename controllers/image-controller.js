@@ -16,7 +16,7 @@ imageController.search = (req, res) => {
   console.log("this is page", randomPage)
   axios({
     method: 'get',
-    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=6&json=1&pid=${randomPage}&tags=-rating:questionable&tags=${req.body.search}
+    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=33&json=1&pid=${randomPage}&tags=-rating:questionable&tags=${req.body.search}
 `
   })
   .then( data => {

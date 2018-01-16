@@ -24,6 +24,21 @@ safeboorutagController.showSaved = (req, res) => {
       res.status(400).json(err)
     })
 }
-
+safeboorutagController.showSaved2 = (req, res) => {
+  Safeboorutag.findAll()
+  .then(tags => {
+    Safeboorutag.findByTag(req.params.tag)
+    .then((tag) => {
+      res.render('saved-by-tags.ejs',{
+        tag:tag,
+        tags:tags
+      })
+    }).catch(err => {
+        res.status(400).json(err)
+      })
+  }).catch(err => {
+    res.status(400).json(err)
+  })
+}
 
 module.exports = safeboorutagController;

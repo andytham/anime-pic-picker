@@ -1,12 +1,19 @@
 <html>
   <% include partials/head.ejs %>
-  <% include partials/header.ejs %>
-  <body>
 
-  <% for (let value of tag) { %>
-    <img width="300px" src="<%= value.image %>" />
-  <% } %>
-  
 
+  <link rel="stylesheet" type="text/css" href="/css/tags.css" />
+  <body class="tags-ejs">
+
+      <% include partials/header.ejs %>
+      <% include partials/tags-sidebar.ejs %>
+
+      <div class="content">
+        <% for (let value of tag) { %>
+          <a href="../saved/<%= value.id %>">
+          <img width="300px" src="<%= value.image %>" />
+          </a>
+        <% } %>
+      </div>
   </body>
 </html>

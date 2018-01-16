@@ -1,10 +1,10 @@
 <html>
   <% include partials/head.ejs %>
-
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <% include partials/header.ejs %>
 
   <body>
-    Found <%= data.length %> results for "<%= searchTerm %>"
+    <div>Here are some results for "<%= searchTerm %>" </div>
     <div class="images-container">
       <% let tags = [] %>
       <% let tagsCombined = [] %>

@@ -40,7 +40,7 @@ imageController.searchPremade = (req,res) => {
   let randomPage = Math.trunc(Math.random() * 20) + 1;
   axios({
     method: 'get',
-    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=6&json=1&pid=${randomPage}&tags=-rating:questionable&tags=${req.body.populartags}
+    url: `http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=33&json=1&pid=${randomPage}&tags=-rating:questionable&tags=${req.body.populartags}
 `
   })
   .then( data => {
